@@ -1,0 +1,15 @@
+$boder-width: 3px;
+$height: 24px;
+$width: 12px;
+$border-color: #000;
+
+
+.check {
+  display: inline-block;
+  text-align: center;
+  transform: rotate(45deg);
+  height: $height;
+  width: $width;
+  border-bottom: $boder-width solid $border-color;
+  border-right: $boder-width solid $border-color;
+}
