@@ -13,7 +13,7 @@ $text-color: #666;
 $body-font: 'Noto Sans', sans-serif;
 
 $fs-xl: 6.25rem;
-$fs-lg: 1.25rem;
+$fs-lg: 1.25rem;   
 $fs-nm: 0.938rem;
 $fs-sm: 0.813rem;
 
@@ -117,7 +117,6 @@ button {
   top: 0;
   left: 0;
   z-index: 100;
-  border-bottom: 1px solid #1F253D; /* bg valiable */
   background: white;
 }
 
@@ -247,10 +246,55 @@ button {
 
   }
 
-  &__text {
+  &__text {}
 
+}
+
+/*=== skills ===*/
+.skills {
+  &__contianer {
+    row-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  &__subtitle {
+    margin: $mb-2 0;
+    color: $point-color;
+    font-weight: $fw-bold;
+  }
+
+  &__name {
+    display: inline-flex;
+    padding: 0 $mb-2;
+    margin: $mb-1 0;
+    border: 1px solid red;
+    transition: all 0.3s;
+
+    &:hover {
+      background: red;
+      color: $white-color;
+    }
+  }
+  
+  &__img {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  
+}
+
+/*=== portfolio ===*/
+
+.portfolio {
+  &__container {
+    justify-items: center;
+    row-gap: 2rem;
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 /*=== footer ===*/
@@ -264,17 +308,6 @@ button {
   body {
     margin: 0;
   }
-
-  // .section {
-  //   padding-top: 4rem;
-  //   &-title {
-  //     margin-bottom: 3rem;
-  //     &::after {
-  //       width: 64px;
-  //       top: 3rem;
-  //     }
-  //   }
-  // }
 
   .nav {
     height: calc(3rem + 1rem);
@@ -296,7 +329,7 @@ button {
   .home {
     &__container {
       height: 100vh;
-      // grid-template-columns: 1.7fr 1fr;
+      grid-template-columns: 1.7fr 1fr;
       row-gap: 0;
     }
 
@@ -322,6 +355,19 @@ button {
     }
   }
 
+  .skills {
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .portfolio {
+    &__container {
+      grid-template-columns: repeat(3, 1fr);
+      // grid-template-rows: repeat(2, 1fr);
+      columns: 2rem;
+    }
+  }
 } 
  
 @media screen and (min-width: 1024px) {

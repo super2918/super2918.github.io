@@ -141,8 +141,6 @@ button {
   top: 0;
   left: 0;
   z-index: 100;
-  border-bottom: 1px solid #1F253D;
-  /* bg valiable */
   background: white;
 }
 
@@ -286,6 +284,51 @@ button {
   letter-spacing: -0.1rem;
 }
 
+/*=== skills ===*/
+.skills__contianer {
+  row-gap: 2rem;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.skills__subtitle {
+  margin: 1rem 0;
+  color: #610FFF;
+  font-weight: 700;
+}
+
+.skills__name {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid red;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.skills__name:hover {
+  background: red;
+  color: #fff;
+}
+
+.skills__img {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/*=== portfolio ===*/
+.portfolio__container {
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.portfolio__img {
+  position: relative;
+  overflow: hidden;
+}
+
 /*=== footer ===*/
 .ly-footer {
   background: #000;
@@ -312,6 +355,8 @@ button {
   }
   .home__container {
     height: 100vh;
+    -ms-grid-columns: 1.7fr 1fr;
+        grid-template-columns: 1.7fr 1fr;
     row-gap: 0;
   }
   .home__round {
@@ -332,6 +377,16 @@ button {
   .about__img {
     width: 200px;
     height: 200px;
+  }
+  .skills__container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .portfolio__container {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -webkit-columns: 2rem;
+            columns: 2rem;
   }
 }
 
