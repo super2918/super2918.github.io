@@ -384,6 +384,19 @@ button {
   color: #fff;
 }
 
+/*=== resume ===*/
+.resume__link {
+  display: block;
+  border: 1px solid black;
+}
+
+/*=== contact ===*/
+.contact__email {
+  font-size: 6.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5rem;
+}
+
 /*=== footer ===*/
 .ly-footer {
   background: #000;
@@ -442,6 +455,9 @@ button {
         grid-template-columns: repeat(3, 1fr);
     -webkit-columns: 2rem;
             columns: 2rem;
+  }
+  .contact__container {
+    text-align: center;
   }
 }
 

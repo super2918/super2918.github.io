@@ -13,16 +13,15 @@ $text-color: #666;
 $body-font: 'Noto Sans', sans-serif;
 
 $fs-xl: 6.25rem;
-$fs-lg: 1.25rem;   
+$fs-lg: 1.25rem;
 $fs-nm: 0.938rem;
 $fs-sm: 0.813rem;
-
 $fw-normal: 400;
 $fw-bold: 700;
 
 @media screen and (min-width: 768px) {
   $fs-xl: 10.5rem;
-  $fs-l: 2rem;
+  $fs-lg: 2rem;
   $fs-nm: 1rem;
   $fs-sm: 0.875rem;
 }
@@ -325,6 +324,25 @@ button {
   }
 }
 
+/*=== resume ===*/
+.resume {
+  // text-align: center;
+
+  &__link {
+    display: block;
+    border: 1px solid black;
+  }
+}
+
+/*=== contact ===*/
+.contact {
+  &__email {
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    letter-spacing: -0.5rem;
+  }
+}
+
 /*=== footer ===*/
 .ly-footer {
   background: #000;
@@ -394,6 +412,12 @@ button {
       grid-template-columns: repeat(3, 1fr);
       // grid-template-rows: repeat(2, 1fr);
       columns: 2rem;
+    }
+  }
+
+  .contact {
+    &__container {
+      text-align: center;
     }
   }
 } 
