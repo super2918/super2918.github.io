@@ -367,20 +367,40 @@ button {
       -webkit-text-stroke: 0vw #383d52;
       border-right: 2px solid white;
       overflow: hidden;
-      animation: animate 6s linear infinite;
+      // animation: animate 6s linear infinite;
+      animation:typing 4s steps(22,end) forwards,
+      blink 1s infinite;
     }
   }
 }
 
-@keyframes animate {
-  0%, 10%, 100% {
-    width: 0;
+@keyframes typing {
+  0% {
+    width: 0%;
   }
-  
-  70%, 90% {
-    width: 100%;  
+  100% {
+    width: 100%;
   }
 }
+
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid white;
+  }
+}
+
+// @keyframes animate {
+//   0%, 10%, 100% {
+//     width: 0;
+//   }
+  
+//   70%, 90% {
+//     width: 100%;  
+//   }
+// }
 
 /*=== footer ===*/
 .ly-footer {
