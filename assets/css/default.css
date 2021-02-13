@@ -120,7 +120,6 @@ button {
 /*=== class css ===*/
 .section {
   padding: 3rem 0;
-  border: 1px solid red;
 }
 
 .section__title {
@@ -141,7 +140,7 @@ button {
   right: 0;
   margin: auto;
   top: 2rem;
-  background: #610FFF;
+  background: #397BDB;
 }
 
 /*=== layout ===*/
@@ -235,7 +234,7 @@ button {
 .home {
   overflow: hidden;
   position: relative;
-  background: #610FFF;
+  background: #397BDB;
 }
 
 .home__container {
@@ -296,13 +295,13 @@ button {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: #610FFF;
+  background: #397BDB;
   overflow: hidden;
 }
 
 .about__subtitle {
   font-size: 1.25rem;
-  color: #610FFF;
+  color: #397BDB;
   margin-bottom: 0.5rem;
   letter-spacing: -0.1rem;
 }
@@ -316,7 +315,7 @@ button {
 
 .skills__subtitle {
   margin: 1rem 0;
-  color: #610FFF;
+  color: #397BDB;
   font-weight: 700;
 }
 
@@ -326,13 +325,14 @@ button {
   display: inline-flex;
   padding: 0 1rem;
   margin: 0.5rem 0;
-  border: 1px solid red;
+  background: #E1EBF9;
+  border-radius: 3rem;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .skills__name:hover {
-  background: red;
+  background: #397BDB;
   color: #fff;
 }
 
@@ -391,10 +391,58 @@ button {
 }
 
 /*=== contact ===*/
+.contact__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: #252839;
+}
+
 .contact__email {
-  font-size: 6.25rem;
-  font-weight: 700;
-  letter-spacing: -0.5rem;
+  position: relative;
+  font-size: 10vw;
+  color: #252839;
+  -webkit-text-stroke: 0.3vw #383d52;
+}
+
+.contact__email::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid white;
+  overflow: hidden;
+  -webkit-animation: animate 6s linear infinite;
+          animation: animate 6s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0%, 10%, 100% {
+    width: 0;
+  }
+  70%, 90% {
+    width: 100%;
+  }
+}
+
+@keyframes animate {
+  0%, 10%, 100% {
+    width: 0;
+  }
+  70%, 90% {
+    width: 100%;
+  }
 }
 
 /*=== footer ===*/
@@ -449,6 +497,9 @@ button {
   .skills__container {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .portfolio__container {
     -ms-grid-columns: (1fr)[3];
