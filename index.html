@@ -23,7 +23,7 @@
 
         <div class="nav__menu">
           <ul class="nav__list">
-            <li class="nav__item"><a href="#home" class="nav__link">HOME</a></li>
+            <li class="nav__item active"><a href="#home" class="nav__link">HOME</a></li>
             <li class="nav__item"><a href="#about" class="nav__link">ABOUT</a></li>
             <li class="nav__item"><a href="#skills" class="nav__link">SKILLS</a></li>
             <li class="nav__item"><a href="#portfolio" class="nav__link">PORTFOLIO</a></li>
@@ -44,12 +44,12 @@
       <section class="home section" id="home">
 
         <div class="home__container ly-grid">
-          <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+          <h1 class="home__title" data-text="CREATIVE FRONT DELVELOPER">
+            CREATIVE FRONT DELVELOPER
+          </h1>
           <div class="home__scroll">
             <a href="#about" class="home__scroll-link">Scroll down</a>
           </div>
-
-          <div class="home__round"></div>
 
         </div>
       </section>
@@ -64,7 +64,7 @@
           </div>
           <div class="about__intro">
             <h3 class="about__subtitle">Web Front-Engineer</h3>
-            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+            <span>프론트 개발자를 꿈꾸고 있는 </span>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum ullam molestias omnis deserunt magni sit explicabo possimus dolores labore exercitationem! Facilis dolore corporis laboriosam dolorum aliquid minus possimus repellat illum?</p>
           </div>
         </div>
@@ -105,15 +105,15 @@
         <div class="portfolio__container ly-grid">
           <!-- notion link -->
           <div class="portfolio__img">
-            <img src="/assets/images/images.jpg" alt="">
+            <img src="/assets/images/project_logo_posce.png" alt="">
             <div class="portfolio__link">
-              <a href="#" class="portfolio__link-name">포트폴리오 링크</a>
+              <a href="#" class="portfolio__link-name">포스코</a>
             </div>
           </div>
           <div class="portfolio__img">
             <img src="/assets/images/images.jpg" alt="">
             <div class="portfolio__link">
-              <a href="#" class="portfolio__link-name">포트폴리오 링크</a>
+              <a href="https://www.kbli.co.kr/CUCO/CUCO10010M.do" class="portfolio__link-name">포트폴리오 링크</a>
             </div>
           </div>
           <div class="portfolio__img">
@@ -206,5 +206,19 @@
 
   <!-- index js -->
   <script src="assets/js/index.js"></script>
-</body>
+  <script type="text/javascript">
+  const text = document.querySelector('.home__title');
+  let shadow = '';
+
+  const SHADOW_COUNT = 30;
+
+  for(let i = 0; i < SHADOW_COUNT; i++) {
+    shadow += (shadow ? ',' : '') + -i * 1+'px ' + i * 1 + 'px #d9d9d9';
+  }
+
+  text.style.textShadow = shadow
+  console.log(text);
+  </script>
+
 </html>
+                                                                                       

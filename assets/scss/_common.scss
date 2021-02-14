@@ -4,6 +4,8 @@ $header-height: 3rem;
 
 /* colors */
 $white-color: #fff;
+// $light-gray-color:#e0e0e0;
+$light-gray-color: #f1f1f1;
 $point-color: #397BDB;
 $dark-gray-color: #2a3b47;
 $text-color: #666;
@@ -12,6 +14,7 @@ $text-color: #666;
 
 $body-font: 'Noto Sans', sans-serif;
 
+$fs-xxl: 5vw;
 $fs-xl: 6.25rem;
 $fs-lg: 1.25rem;
 $fs-nm: 0.938rem;
@@ -20,6 +23,7 @@ $fw-normal: 400;
 $fw-bold: 700;
 
 @media screen and (min-width: 768px) {
+  $fs-xxl: 10vw;
   $fs-xl: 10.5rem;
   $fs-lg: 2rem;
   $fs-nm: 1rem;
@@ -184,7 +188,29 @@ button {
 .home {
   overflow: hidden;
   position: relative;
-  background: $point-color;
+  background: $light-gray-color;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 100vh;
+    height: 100vh;
+    border-radius: $round;
+    background: #eee;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 200px;
+    height: 200px;
+    border-radius: $round;
+    background: $point-color;
+  }
 
   &__container {
     height: calc(100vh - $header-height);
@@ -192,13 +218,24 @@ button {
   }
 
   &__title {
-    align-self: flex-end;
-    font-size: $fs-xl;
-    line-height: 0.8;
+    position: relative;
+    align-self: center;
+    font-size: $fs-xxl;
+    font-weight: 900;
     color: $white-color;
-
-    & span {
-      text-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    transform: rotate(-28deg) skew(25deg);
+    
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 30px;
+      left: -30px;
+      color: rgba(0, 0, 0, 0.3);
+      text-shadow: none;
+      filter: blur(8px);
+      z-index: -1;
     }
   }
 
@@ -208,18 +245,7 @@ button {
     &-link {
       writing-mode: vertical-lr;
       transform: rotate(-180deg);
-      color: white;
     }
-  }
-
-  &__round {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 300px;
-    height: 300px;
-    border-radius: $round;
-    background: white;
   }
 }
 
@@ -434,15 +460,7 @@ button {
   .home {
     &__container {
       height: 100vh;
-      grid-template-columns: 1.7fr 1fr;
       row-gap: 0;
-    }
-
-    &__round {
-      width: 500px;
-      height: 500px;
-      top: 10%;
-      right: 10%;
     }
   }
 
