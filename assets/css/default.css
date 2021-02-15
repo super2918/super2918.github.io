@@ -52,26 +52,70 @@ table {
   border-spacing: 0;
 }
 
-.check {
+.check-list li {
+  position: relative;
+}
+
+.check-list li::before {
+  content: '';
   display: inline-block;
   text-align: center;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   height: 24px;
   width: 12px;
-  border-bottom: 3px solid #000;
-  border-right: 3px solid #000;
+  margin-right: 1rem;
+  border-bottom: 3px solid #666;
+  border-right: 3px solid #666;
 }
 
 .check {
+  position: relative;
+}
+
+.check::before {
+  content: '';
   display: inline-block;
   text-align: center;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   height: 24px;
   width: 12px;
-  border-bottom: 3px solid #000;
-  border-right: 3px solid #000;
+  border-bottom: 3px solid #666;
+  border-right: 3px solid #666;
+}
+
+.check-list li {
+  position: relative;
+}
+
+.check-list li::before {
+  content: '';
+  display: inline-block;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  height: 24px;
+  width: 12px;
+  margin-right: 1rem;
+  border-bottom: 3px solid #666;
+  border-right: 3px solid #666;
+}
+
+.check {
+  position: relative;
+}
+
+.check::before {
+  content: '';
+  display: inline-block;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  height: 24px;
+  width: 12px;
+  border-bottom: 3px solid #666;
+  border-right: 3px solid #666;
 }
 
 /*=== valiables css ===*/
@@ -117,9 +161,27 @@ button {
   cursor: pointer;
 }
 
+/*=== skip ===*/
+#skip {
+  position: fixed;
+  left: 0;
+  top: -4rem;
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transition: top 0.4s;
+  transition: top 0.4s;
+  z-index: 100000;
+}
+
+#skip:focus {
+  top: 0;
+}
+
 /*=== class css ===*/
 .section {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 .section__title {
@@ -163,7 +225,9 @@ button {
   top: 0;
   left: 0;
   z-index: 100;
-  background: white;
+  background: #fff;
+  -webkit-box-shadow: 8px 8px 17px -3px rgba(0, 0, 0, 0.09);
+          box-shadow: 8px 8px 17px -3px rgba(0, 0, 0, 0.09);
 }
 
 /*=== nav ===*/
@@ -200,11 +264,11 @@ button {
   cursor: pointer;
 }
 
-.nav__item:hover .nav__link {
+.nav__item:focus .nav__link, .nav__item:focus-within .nav__link, .nav__item:hover .nav__link {
   color: #397BDB;
 }
 
-.nav__item:hover .nav__link::before {
+.nav__item:focus .nav__link::before, .nav__item:focus-within .nav__link::before, .nav__item:hover .nav__link::before {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
@@ -271,6 +335,7 @@ button {
   width: 100vh;
   height: 100vh;
   border-radius: 50%;
+  margin-top: 2rem;
   background: #eee;
 }
 
@@ -286,11 +351,25 @@ button {
   opacity: 0.4;
 }
 
-.home__round::after {
+.home__round span {
+  position: absolute;
+  display: block;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: cricle 30s linear infinite;
+          animation: cricle 30s linear infinite;
+}
+
+.home__round span::before {
   content: '';
   position: absolute;
-  top: 80%;
-  right: 0;
+  top: -50px;
+  right: -52px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -344,6 +423,28 @@ button {
           writing-mode: vertical-lr;
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
+}
+
+@-webkit-keyframes cricle {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes cricle {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 /*=== about ===*/
@@ -503,28 +604,32 @@ button {
   color: #666;
 }
 
-/*=== resume ===*/
-.resume__link {
-  display: block;
-  border: 1px solid black;
-}
-
 /*=== contact ===*/
 .contact__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2rem 0;
+}
+
+.contact__text strong {
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .contact__email {
   position: relative;
+  display: block;
+  margin: 3rem 0;
   font-size: 6.25rem;
   color: #eee;
   -webkit-text-stroke: 0.3vw #eee;

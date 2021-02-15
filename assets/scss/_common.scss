@@ -44,7 +44,6 @@ $border-round: 1rem;
 
 
 /*=== base ===*/
-
 *,
 ::before,
 ::after {
@@ -81,9 +80,26 @@ button {
   cursor: pointer;
 }
 
+/*=== skip ===*/
+#skip {
+  position: fixed; 
+  left: 0;
+  top: -4rem; 
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  background: rgba(0,0,0,0.7); 
+  transition: top 0.4s; 
+  z-index: 100000;
+
+  &:focus {
+    top: 0;
+  }
+}
+
 /*=== class css ===*/
 .section {
-  padding: 3rem 0;
+  padding: 4rem 0;
 
   &__title {
     position: relative;
@@ -125,7 +141,8 @@ button {
   top: 0;
   left: 0;
   z-index: 100;
-  background: white;
+  background: $white-color;
+  box-shadow: 8px 8px 17px -3px rgba(0, 0, 0, 0.09);
 }
 
 /*=== nav ===*/
@@ -151,7 +168,8 @@ button {
   &__item {
     position: relative;
     cursor: pointer;
-
+    &:focus,
+    &:focus-within,
     &:hover {
       .nav__link {
         color: $point-color;
@@ -170,7 +188,6 @@ button {
     &::before {
       content: '';
       position: absolute;
-      // bottom: 0;
       top: 100%;
       left: 0;
       right: 0;
@@ -223,6 +240,7 @@ button {
     width: 100vh;
     height: 100vh;
     border-radius: $round;
+    margin-top: $mb-4;
     background: #eee;
 
     &::before {
@@ -236,17 +254,30 @@ button {
       border: 1px solid $point-color;
       opacity: 0.4;
     }
+    
+    span {
+      position: absolute;
+      display: block;
+      top: calc(50% - 2px);
+      left: 50%;
+      width: 50%;
+      height: 4px;
+      background: transparent;
+      transform-origin: left;
+      animation: cricle 30s linear infinite;
 
-    &::after {
+      &::before {
       content: '';
       position: absolute;
-      top: 80%;
-      right: 0;
+      top: -50px;
+      right: -52px;
       width: 100px;
       height: 100px;
       border-radius: $round;
       background: $point-color;
+      }
     }
+
   }
 
   &__container {
@@ -290,6 +321,24 @@ button {
     }
   }
 }
+
+
+@keyframes cricle {
+  0% {
+      transform: rotate(0deg)
+  }
+  100% {
+     transform: rotate(360deg)
+  }
+}
+
+// @keyframes cricle2 {
+//   0% {
+//       transform: rotate(-45deg)
+//   }
+//   100% {
+//      transform: rotate(-450deg)
+//   }
 
 /*=== about ===*/
 .about {
@@ -432,29 +481,27 @@ button {
   }
 }
 
-/*=== resume ===*/
-.resume {
-  // text-align: center;
-
-  &__link {
-    display: block;
-    border: 1px solid black;
-  }
-}
 
 /*=== contact ===*/
 .contact {
-
   &__container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: $mb-4 0;
-    // min-height: 100vh;
+  }
+
+  &__text {
+    strong {
+      font-size: $fs-lg;
+      font-weight: $fw-bold;
+    }
   }
 
   &__email {
     position: relative;
+    display: block;
+    margin: $mb-6 0;
     font-size: $fs-xl;
     color: #eee;
     -webkit-text-stroke: 0.3vw #eee;
@@ -597,7 +644,6 @@ button {
   .portfolio {
     &__container {
       grid-template-columns: repeat(3, 1fr);
-      // grid-template-rows: repeat(2, 1fr);
       columns: 2rem;
     }
   }
