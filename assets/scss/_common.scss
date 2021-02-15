@@ -9,22 +9,22 @@ $light-gray-color: #f1f1f1;
 $point-color: #397BDB;
 $dark-gray-color: #2a3b47;
 $text-color: #666;
+$text-sub-color: #999;
 
 /* typography */
-
 $body-font: 'Noto Sans', sans-serif;
 
-$fs-xxl: 5vw;
+$fs-xxl: 13rem;
 $fs-xl: 6.25rem;
 $fs-lg: 1.25rem;
 $fs-nm: 0.938rem;
 $fs-sm: 0.813rem;
+
 $fw-normal: 400;
 $fw-bold: 700;
 
 @media screen and (min-width: 768px) {
-  $fs-xxl: 10vw;
-  $fs-xl: 10.5rem;
+  $fs-xl: 20rem;
   $fs-lg: 2rem;
   $fs-nm: 1rem;
   $fs-sm: 0.875rem;
@@ -35,6 +35,8 @@ $mb-1: 0.5rem;
 $mb-2: 1rem;
 $mb-3: 1.5rem;
 $mb-4: 2rem;
+$mb-5: 2.5rem;
+$mb-6: 3rem;
 
 /* round */
 $round: 50%;
@@ -85,7 +87,7 @@ button {
 
   &__title {
     position: relative;
-    margin: $mb-4 0;
+    margin: 3rem 0 5rem;
     font-weight: $fw-bold;
     text-align: center;
     font-size: $fs-lg;
@@ -148,11 +150,34 @@ button {
 
   &__item {
     position: relative;
-    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      .nav__link {
+        color: $point-color;
+
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
   }
 
   &__link {
     position: relative;
+    display: block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      // bottom: 0;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border-top: 2px solid $point-color;
+      transform: scaleX(0);
+      transition: transform .3s;
+    }
   }
   
   &__logo {
@@ -190,26 +215,38 @@ button {
   position: relative;
   background: $light-gray-color;
   
-  &::before {
-    content: '';
+  &__round {
     position: absolute;
-    top: 0;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100vh;
     height: 100vh;
     border-radius: $round;
     background: #eee;
-  }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    width: 200px;
-    height: 200px;
-    border-radius: $round;
-    background: $point-color;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 100vh;
+      height: 100vh;
+      border-radius: $round;
+      border: 1px solid $point-color;
+      opacity: 0.4;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 80%;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: $round;
+      background: $point-color;
+    }
   }
 
   &__container {
@@ -226,6 +263,7 @@ button {
     letter-spacing: 2px;
     line-height: 1.2em;
     transform: rotate(-28deg) skew(25deg);
+    z-index: 10;
     
     &::before {
       content: attr(data-text);
@@ -236,6 +274,10 @@ button {
       text-shadow: none;
       filter: blur(8px);
       z-index: -1;
+    }
+
+    span {
+      color: $point-color;
     }
   }
 
@@ -310,11 +352,28 @@ button {
     border-radius: $border-round;
     overflow: hidden;
   }
+
+  &__certificate {
+
+    li {
+      display: flex;
+      flex-direction: column;
+      font-weight: $fw-bold;
+
+      & + li {
+        margin-top: 10px;
+      }
+    }
+
+    span {
+      font-weight: $fw-normal;
+      color: $text-sub-color;
+    }
+  }
   
 }
 
 /*=== portfolio ===*/
-
 .portfolio {
   &__container {
     justify-items: center;
@@ -323,8 +382,12 @@ button {
 
   &__img {
     position: relative;
+    display: flex;
+    align-items: center;
     border-radius: $border-round;
     overflow: hidden;
+    background: white;
+    box-shadow:  10px 10px 20px #ebebeb, -10px -10px 20px #ffffff;
 
     &:hover .portfolio__link {
       bottom: 0;
@@ -368,19 +431,15 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #252839;
+    padding: $mb-4 0;
+    // min-height: 100vh;
   }
 
   &__email {
-    // font-size: $fs-xl;
-    // font-weight: $fw-bold;
-    // letter-spacing: -0.5rem;
-    // color: #eee;
     position: relative;
-    font-size: 10vw;
-    color: #252839;
-    -webkit-text-stroke: 0.3vw #383d52;
+    font-size: $fs-xl;
+    color: #eee;
+    -webkit-text-stroke: 0.3vw #eee;
 
     &::before {
       content: attr(data-text);
@@ -390,11 +449,10 @@ button {
       width: 100%;
       height: 100%;
       color: white;
-      -webkit-text-stroke: 0vw #383d52;
+      -webkit-text-stroke: 0vw #eee;
       border-right: 2px solid white;
       overflow: hidden;
-      // animation: animate 6s linear infinite;
-      animation:typing 4s steps(22,end) forwards,
+      animation:typing 6s steps(22,end) infinite,
       blink 1s infinite;
     }
   }
@@ -414,23 +472,55 @@ button {
     border-right:2px solid transparent;
   }
   50% {
-    border-right:2px solid white;
+    border-right:2px solid #888;
   }
 }
 
-// @keyframes animate {
-//   0%, 10%, 100% {
-//     width: 0;
-//   }
-  
-//   70%, 90% {
-//     width: 100%;  
-//   }
-// }
-
 /*=== footer ===*/
 .ly-footer {
-  background: #000;
+  background: #f1f1f1;
+  padding: $mb-4 0;
+}
+
+.footer {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__explore {
+
+    li {
+      position: relative;
+      display: inline-block;
+      margin: 0 $mb-1;
+    }
+
+    li + li::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 2px;
+      margin-left: -$mb-1; 
+      background: $text-sub-color;
+    }
+
+    a {
+      color: $text-sub-color;
+      
+      &:hover {
+        color: $text-color;  
+      }
+    }
+  }
+
+  &__logo {
+    margin: $mb-2;
+  }
 }
 
 /*=== media query ===*/
@@ -447,8 +537,8 @@ button {
       display: flex;
     }
 
-    &__item {
-      margin-left: 2rem;
+    &__link {
+      padding: 1rem;
     }
 
     &__toggle {
