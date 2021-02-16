@@ -1,10 +1,9 @@
 /*=== valiables css ===*/
 
-$header-height: 3rem;
+$header-height: 4rem;
 
 /* colors */
 $white-color: #fff;
-// $light-gray-color:#e0e0e0;
 $light-gray-color: #f1f1f1;
 $point-color: #397BDB;
 $dark-gray-color: #2a3b47;
@@ -16,6 +15,7 @@ $body-font: 'Noto Sans', sans-serif;
 
 $fs-xxl: 13rem;
 $fs-xl: 6.25rem;
+$fs-lg2: 2rem;
 $fs-lg: 1.25rem;
 $fs-nm: 0.938rem;
 $fs-sm: 0.813rem;
@@ -25,6 +25,7 @@ $fw-bold: 700;
 
 @media screen and (min-width: 768px) {
   $fs-xl: 20rem;
+  $fs-lg2: 3rem;
   $fs-lg: 2rem;
   $fs-nm: 1rem;
   $fs-sm: 0.875rem;
@@ -332,14 +333,6 @@ button {
   }
 }
 
-// @keyframes cricle2 {
-//   0% {
-//       transform: rotate(-45deg)
-//   }
-//   100% {
-//      transform: rotate(-450deg)
-//   }
-
 /*=== about ===*/
 .about {
   &__container {
@@ -360,10 +353,13 @@ button {
 
   &__subtitle {
     font-size: $fs-lg;
-    color: $point-color;
     margin-bottom: $mb-1;
-    letter-spacing: -0.1rem;
 
+    strong {
+      font-weight: $fw-bold;
+      color: $point-color;
+      font-size: 2rem;
+    }
   }
 
   // &__text {}
@@ -489,6 +485,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 80px;
   }
 
   &__text {
@@ -508,6 +505,7 @@ button {
 
     &::before {
       content: attr(data-text);
+      overflow: hidden;
       position: absolute;
       top: 0;
       left: 0;
@@ -516,11 +514,24 @@ button {
       color: white;
       -webkit-text-stroke: 0vw #eee;
       border-right: 2px solid white;
-      overflow: hidden;
-      animation:typing 6s steps(22,end) infinite,
-      blink 1s infinite;
+      animation:typing 6s steps(22,end) infinite, blink 6s infinite;
+    }
+
+    &:hover {
+      
+      & +  .contact__message {
+        color: $text-color;
+      }
     }
   }
+
+
+  &__message {
+    color: #eee;
+    transition: all 0.3s;
+  }
+
+
 }
 
 @keyframes typing {
@@ -596,7 +607,7 @@ button {
   }
 
   .nav {
-    height: calc(3rem + 1rem);
+    height: $header-height;
 
     &__list {
       display: flex;

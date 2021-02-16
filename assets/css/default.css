@@ -136,7 +136,7 @@ html {
 }
 
 body {
-  margin: 3rem 0 0 0;
+  margin: 4rem 0 0 0;
   font-family: "Noto Sans", sans-serif;
   font-size: 0.938rem;
   color: #666;
@@ -241,13 +241,13 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 3rem;
+  height: 4rem;
 }
 
 @media screen and (max-width: 768px) {
   .nav__menu {
     position: fixed;
-    top: 3rem;
+    top: 4rem;
     right: -100%;
     width: 100%;
     height: 100%;
@@ -470,9 +470,13 @@ button {
 
 .about__subtitle {
   font-size: 1.25rem;
-  color: #397BDB;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.1rem;
+}
+
+.about__subtitle strong {
+  font-weight: 700;
+  color: #397BDB;
+  font-size: 2rem;
 }
 
 /*=== skills ===*/
@@ -619,6 +623,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 80px;
 }
 
 .contact__text strong {
@@ -637,6 +642,7 @@ button {
 
 .contact__email::before {
   content: attr(data-text);
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -645,9 +651,18 @@ button {
   color: white;
   -webkit-text-stroke: 0vw #eee;
   border-right: 2px solid white;
-  overflow: hidden;
-  -webkit-animation: typing 6s steps(22, end) infinite, blink 1s infinite;
-          animation: typing 6s steps(22, end) infinite, blink 1s infinite;
+  -webkit-animation: typing 6s steps(22, end) infinite, blink 6s infinite;
+          animation: typing 6s steps(22, end) infinite, blink 6s infinite;
+}
+
+.contact__email:hover + .contact__message {
+  color: #666;
+}
+
+.contact__message {
+  color: #eee;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 @-webkit-keyframes typing {
@@ -740,7 +755,7 @@ button {
     margin: 0;
   }
   .nav {
-    height: calc(3rem + 1rem);
+    height: 4rem;
   }
   .nav__list {
     display: -webkit-box;
