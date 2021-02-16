@@ -203,14 +203,49 @@ button {
   }
 
   &__toggle {
-    &::before {
-      content: '';
+
+    .button {
+      position:relative; 
+      width: 60px;
+      height: 60px;
+
+      &::before,
+      &::after  {
+        display:block; 
+        content:"";
+        position:absolute;
+        left: 50%;
+        top: 50%;
+        width: 36px;
+        height: 3px;
+        background: #000; 
+        transform:translateX(-50%); transition:all .3s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      &::before {
+        margin-top: -8px;
+      }
+      &::after {
+        width: 30px;
+        margin-left: 3px;
+        margin-top: 4px;
+      }
     }
 
-    &::after {
-      content: '';
+    &.toggle {
+      .button::before {
+        margin-top:-2px;
+        transform: translateX(-50%) rotate(45deg) translateZ(0);
+      }
+      .button::after {
+        width: 36px;
+        margin-left: 0;
+        margin-top:-2px; 
+        transform: translateX(-50%) rotate(-45deg) translateZ(0);
+      }
     }
   }
+
 }
 
 /*=== activ menu ===*/
@@ -230,7 +265,7 @@ button {
 /*=== home ===*/
 .home {
   overflow: hidden;
-  position: relative;
+  position: relative;  
   background: $light-gray-color;
   
   &__round {
@@ -278,7 +313,6 @@ button {
       background: $point-color;
       }
     }
-
   }
 
   &__container {
@@ -323,7 +357,6 @@ button {
   }
 }
 
-
 @keyframes cricle {
   0% {
       transform: rotate(0deg)
@@ -362,8 +395,32 @@ button {
     }
   }
 
-  // &__text {}
+  &__description {
+    margin: $mb-5 0;
+  }
 
+  &__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    .item {
+      font-size: $fs-lg;
+      transition: all 0.3s;
+
+      span {
+        display: inline-block;
+        margin-left: $mb-1;
+        font-size: $fs-nm;
+      }
+
+      &:hover,
+      &:focus {
+        color: $point-color;
+      }
+    }
+  }
 }
 
 /*=== skills ===*/
@@ -525,13 +582,10 @@ button {
     }
   }
 
-
   &__message {
     color: #eee;
     transition: all 0.3s;
   }
-
-
 }
 
 @keyframes typing {

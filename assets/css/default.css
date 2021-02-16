@@ -297,12 +297,49 @@ button {
   font-weight: bold;
 }
 
-.nav__toggle::before {
-  content: '';
+.nav__toggle .button {
+  position: relative;
+  width: 60px;
+  height: 60px;
 }
 
-.nav__toggle::after {
-  content: '';
+.nav__toggle .button::before, .nav__toggle .button::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 36px;
+  height: 3px;
+  background: #000;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav__toggle .button::before {
+  margin-top: -8px;
+}
+
+.nav__toggle .button::after {
+  width: 30px;
+  margin-left: 3px;
+  margin-top: 4px;
+}
+
+.nav__toggle.toggle .button::before {
+  margin-top: -2px;
+  -webkit-transform: translateX(-50%) rotate(45deg) translateZ(0);
+          transform: translateX(-50%) rotate(45deg) translateZ(0);
+}
+
+.nav__toggle.toggle .button::after {
+  width: 36px;
+  margin-left: 0;
+  margin-top: -2px;
+  -webkit-transform: translateX(-50%) rotate(-45deg) translateZ(0);
+          transform: translateX(-50%) rotate(-45deg) translateZ(0);
 }
 
 /*=== activ menu ===*/
@@ -477,6 +514,41 @@ button {
   font-weight: 700;
   color: #397BDB;
   font-size: 2rem;
+}
+
+.about__description {
+  margin: 2.5rem 0;
+}
+
+.about__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.about__social .item {
+  font-size: 1.25rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.about__social .item span {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.938rem;
+}
+
+.about__social .item:hover, .about__social .item:focus {
+  color: #397BDB;
 }
 
 /*=== skills ===*/

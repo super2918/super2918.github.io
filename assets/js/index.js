@@ -9,3 +9,20 @@
 
 // text.style.textShadow = shadow
 // console.log(text);
+
+(function() {
+
+  function toggleMenu () {
+    const $navToggleButton = document.querySelector('.nav__toggle');
+    $navToggleButton.addEventListener('click', function(){
+      this.classList.toggle('toggle');
+    });
+  }
+
+  function init() {
+    toggleMenu();
+  }
+
+  init();
+
+})();
