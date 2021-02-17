@@ -1,26 +1,33 @@
-// const text = document.querySelector('.home__title');
-// let shadow = '';
-
-// const SHADOW_COUNT = 30;
-
-// for(let i = 0; i < SHADOW_COUNT; i++) {
-//   shadow += (shadow ? ',' : '') + -i * 1+'px ' + i * 1 + 'px #d9d9d9';
-// }
-
-// text.style.textShadow = shadow
-// console.log(text);
-
 (function() {
 
-  function toggleMenu () {
-    const $navToggleButton = document.querySelector('.nav__toggle');
-    $navToggleButton.addEventListener('click', function(){
-      this.classList.toggle('toggle');
-    });
+  function text3Dshadow() {
+    const $text = document.querySelector('.home__title');
+    let shadow = '';
+  
+    const SHADOW_COUNT = 30;
+  
+      for(let i = 0; i < SHADOW_COUNT; i++) {
+        shadow += (shadow ? ',' : '') + -i * 1+'px ' + i * 1 + 'px #d9d9d9';
+      }
+  
+    $text.style.textShadow = shadow
+  }
+
+  function showMenu (navToggle, navMenu) {
+    const $navMenu = document.querySelector(navMenu),
+    $navToggle = document.querySelector(navToggle);
+
+    if($navToggle && $navMenu) {
+      $navToggle.addEventListener('click', () => {
+        $navMenu.classList.toggle('show')
+        $navToggle.classList.toggle('show')
+      })
+    }
   }
 
   function init() {
-    toggleMenu();
+    text3Dshadow();
+    showMenu('.nav__toggle', '.nav__menu');
   }
 
   init();
