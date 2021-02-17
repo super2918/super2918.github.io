@@ -714,8 +714,8 @@ button {
 .contact__email {
   position: relative;
   display: block;
-  margin: 8rem 0;
-  font-size: 5vw;
+  margin: 5rem 0;
+  font-size: 8vw;
   color: #eee;
   -webkit-text-stroke: 0.3vw #eee;
 }
@@ -887,6 +887,9 @@ button {
   }
   .contact__container {
     text-align: center;
+  }
+  .contact__email {
+    font-size: 5vw;
   }
 }
 

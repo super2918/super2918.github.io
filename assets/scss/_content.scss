@@ -463,8 +463,8 @@
   &__email {
     position: relative;
     display: block;
-    margin: 8rem 0;
-    font-size: 5vw;
+    margin: 5rem 0;
+    font-size: 8vw;
     color: #eee;
     -webkit-text-stroke: 0.3vw #eee;
 
@@ -631,6 +631,10 @@
   .contact {
     &__container {
       text-align: center;
+    }
+
+    &__email {
+      font-size: 5vw;
     }
   }
 } 
