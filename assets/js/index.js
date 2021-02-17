@@ -1,5 +1,4 @@
 (function() {
-
   function text3Dshadow() {
     const $text = document.querySelector('.home__title');
     let shadow = '';
@@ -19,15 +18,27 @@
 
     if($navToggle && $navMenu) {
       $navToggle.addEventListener('click', () => {
-        $navMenu.classList.toggle('show')
-        $navToggle.classList.toggle('show')
+        $navMenu.classList.toggle('show');
+        $navToggle.classList.toggle('show');
       })
     }
   }
 
+  function linkAaction () {
+    const $navLinks = document.querySelectorAll('.nav__link');
+    const $navMenu = document.querySelector('.nav__menu');
+
+    $navLinks.forEach( link => link.addEventListener('click', () => {
+      $navMenu.classList.remove('show');
+    }));
+  }
+
+  
+
   function init() {
     text3Dshadow();
     showMenu('.nav__toggle', '.nav__menu');
+    linkAaction();
   }
 
   init();
