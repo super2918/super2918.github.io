@@ -34,11 +34,29 @@
   }
 
   
+  function showScrollActive() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 200;
+      sectionId = current.getAttribute('id');
+
+      if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active');
+      }else{
+        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active');
+      }
+
+    });
+  }
 
   function init() {
     text3Dshadow();
     showMenu('.nav__toggle', '.nav__menu');
     linkAaction();
+    window.addEventListener('scroll', showScrollActive);
   }
 
   init();
